@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:51:02 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/04 12:54:05 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:11:41 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	main(int argc, char **argv)
 		while (argv[1][i])
 			i++;
 		while (i)
-			write(1, &argv[1][--i], 1);
+        {
+            i--;
+			write(1, &argv[1][i], 1);
+        }
 	}
 	write (1, "\n", 1);
 	return (0);

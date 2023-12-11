@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 23:49:39 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/07 00:01:13 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:44:54 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,39 +47,41 @@ $>./rostring | cat -e
 $
 $>*/
 
-int	main(int argc, char **argv)
-{
-	int	i, start, end, flag;
 
-	flag = 0;
-	if (argc > 1 && argv[1][0])
+
+int main (int ac , char **av)
+{
+	int i = 0;
+	int j;
+
+	if (ac >= 2)
 	{
-		i = 0;
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		start = i;
-		while (argv[1][i] != '\0' && argv[1][i] != ' ' && argv[1][i] != '\t')
-			i++;
-		end = i;
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		while (argv[1][i])
-		{
-			while ((argv[1][i] == ' ' && argv[1][i + 1] == ' ') || (argv[1][i] == '\t' && argv[1][i + 1] == '\t'))
+		
+			while (av[1][i] && (av[1][i] == ' ' || av[1][i] == '\t')) // search for is_space and move the position.
 				i++;
-			if (argv[1][i] == ' ' || argv[1][i] == '\t')
-				flag = 1;
-			write(1, &argv[1][i], 1);
-			i++;
-		}
-		if (flag)
-			write(1, " ", 1);
-		while (start < end)
-		{
-			write(1, &argv[1][start], 1);
-			start++;
-		}
+			j = i; 
+			while (av[1][i])
+			{
+				while (av[1][i] && (av[1][i] != ' ' && av[1][i] != '\t')) // find the next word.
+					i++;
+				while (av[1][i] && (av[1][i] == ' ' || av[1][i] == '\t')) // find the next word.
+					i++;
+				while (av[1][i] && (av[1][i] != ' ' && av[1][i] != '\t') && (av[1][i -1] == ' ' || av[1][i - 1] == '\t')) // print the word till it reaches last.
+				{
+					while (av[1][i] && (av[1][i] != ' ' && av[1][i] != '\t'))
+					{
+						write (1, &av[1][i], 1);
+						i++;
+					}
+					write (1, " ", 1);
+					i++;
+				}
+			}
+			while (av[1][j] && (av[1][j] != ' ' && av[1][j] != '\t')) // print the first word now.
+			{
+				write (1, &av[1][j], 1);
+				j++;
+			}
 	}
 	write (1, "\n", 1);
-	return (0);
 }

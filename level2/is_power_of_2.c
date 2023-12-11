@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:47:30 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/05 10:03:13 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:35:05 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ Your function must be declared as follows:
 
 int	    is_power_of_2(unsigned int n);*/
 
-int	is_power_of_2(unsigned int n)
+int is_power_of_2(unsigned int n)
 {
-	if (n == 0)
-		return (0);
-	while (n % 2 == 0)
-		n /= 2;
-	return (n == 1);
+    if (n == 0)
+        return (0);
+    return (n & (n - 1)) == 0;
 }
+
 
 int	main(void)
 {

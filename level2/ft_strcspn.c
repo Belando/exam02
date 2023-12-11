@@ -6,11 +6,12 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:25:50 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/04 15:35:11 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:51:45 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
+#include "stddef.h"
 
 /*Assignment name	: ft_strcspn
 Expected files	: ft_strcspn.c
@@ -50,7 +51,7 @@ int	main(void)
 	char	*charset;
 
 	test = "hola";
-	charset = "nene";
+	charset = "eseses";
 	printf("%zu\n", ft_strcspn(test, charset));
 	return (0);
 }

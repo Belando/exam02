@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:35:53 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/04 15:53:48 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:21:05 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 {
 	char	*test;
 
-	test = "probando";
+	test = "probando probando";
 	printf("%s\n", ft_strdup(test));
 	return (0);
 }
