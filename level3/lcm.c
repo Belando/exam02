@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:35:54 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/06 14:09:40 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:13:55 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,36 +41,28 @@ Your function must be prototyped as follows:
 
   unsigned int    lcm(unsigned int a, unsigned int b);*/
 
-unsigned int	gcd(unsigned int a, unsigned int b)
-{
-	unsigned int	temp;
-
-	while (b != 0)
-	{
-		temp = b;
-		b = a % b;
-		a = temp;
-	}
-	return (a);
-}
-
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
-	unsigned int	result;
+	unsigned int	lcm;
 
-	if (a == 0 || b == 0)
-		return (0);
-	result = (a * b) / gcd(a, b);
-	return (result);
+	lcm = (a < b) ? a : b;
+	while (a > 0 && b > 0)
+	{
+		if (lcm % a == 0 && lcm % b == 0)
+			return (lcm);
+		lcm += (a < b) ? a : b;
+	}
+	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	unsigned int	test;
 	unsigned int	test2;
-	
+    (void)argc;
+
 	test = 0;
 	test2 = 15;
-	printf("%d\n", lcm(test,test2));
+	printf("%d\n", lcm((unsigned int)argv[1], (unsigned int)argv[2]));
 	return (0);
 }

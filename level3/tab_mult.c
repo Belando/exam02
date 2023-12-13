@@ -6,7 +6,7 @@
 /*   By: fbelando <fbelando@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:13:39 by fbelando          #+#    #+#             */
-/*   Updated: 2023/12/06 16:37:30 by fbelando         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:26:03 by fbelando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	tab_mult(int num)
 	int	i;
 
 	i = 1;
-	if (num <= 0 || num * 9 > 2147483647)
+	if (num < 0 || num * 9 > 2147483647)
 	{
 		write (1, "\n", 1);
 		return ;
